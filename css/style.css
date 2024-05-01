@@ -1,0 +1,74 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #163152;
+}
+
+.photo-2, .photo-3 {
+    width: 600px;
+    height: 262px;
+}
+
+.social__link {
+    img {
+        width: 9px;
+        height: 16px;
+    }
+}
+
+.info__date {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.info__title {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 700;
+    position: relative;
+}
+
+.info__desc {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.underline {
+    text-decoration: underline;
+    text-decoration-color: #00C6BD;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 15px;
+    text-underline-position: under;
+}
+
+.news__image__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #8693A4;
+}
+
+.news__notation {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 36px;
+}
+
+.news__title {
+    text-align: center;
+}
+
+.teams-list-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.article__title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px; 
+}
