@@ -149,3 +149,7 @@ html {
 a {
   text-decoration: none;
 }
+
+.main-content {
+  margin: 100px 150px 100px 150px;
+}
