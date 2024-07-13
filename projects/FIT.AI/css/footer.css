@@ -1,0 +1,27 @@
+/* :root {
+    --header-height: 100px;
+    --theme-color: rgb(30, 30, 30);
+    --theme-color-60: rgba(0, 0, 0, 0.6);
+    --theme-color-op: rgb(255, 255, 255);
+} */
+
+:root {
+    --header-height: 100px;
+    --theme-color: rgb(255, 255, 255);
+    --theme-color-op: rgb(0, 0, 0);
+    --theme-color-60: rgba(255, 255, 255, 0.6);
+    --theme-color-2: #e7e7e7;
+}
+
+footer {
+    background-color: var(--theme-color);
+    width: 100%;
+}
+
+a:hover {
+    text-decoration-color: var(--theme-color-op);
+}
+
+p {
+    color: var(--theme-color-op);
+}

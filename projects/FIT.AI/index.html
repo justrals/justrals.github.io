@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>FIT.AI - Dashboard</title>
+        <link rel="icon" href="#">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+        <iframe src="https://justrals.github.io/projects/justrals%20embed/index.html" width="100%" height="50px" style="border:none;" allowtransparency="true"></iframe><style>header {margin-top:50px;}</style>
+        <header>
+            <div class="container">
+                <div class="header-wrapper">
+                    <a href="index.html"><p class="logo">FIT.AI</p></a>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="dropbtn">userName</button>
+                                <div class="dropdown-content" id="dropdownMenu">
+                                    <a href="index.html">Dashboard</a>
+                                    <a href="index.html">Settings</a>
+                                    <a href="index.html">Log out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const dropbtn = document.querySelector('.dropbtn');
+                const dropdownContent = document.getElementById('dropdownMenu');
+
+                dropbtn.addEventListener('click', () => {
+                    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+                });
+
+                window.addEventListener('click', (event) => {
+                    if (!event.target.matches('.dropbtn')) {
+                        if (dropdownContent.style.display === 'block') {
+                            dropdownContent.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        </script>
+        <main>
+            <div class="container">
+                <h1>Dashboard</h1>
+                <div class="hero-dashboard">
+                    <div class="left">
+                        <form id="fitness-form">
+                            <input type="number" id="age" name="age" min="18" max="100" placeholder="Age" required>
+                            <br>
+                            <input type="number" id="weight" name="weight" min="20" max="300" placeholder="Weight (kg)" required>
+                            <br>
+                            <input type="number" id="height" name="height" min="50" max="300" placeholder="Height (cm)" required>
+                            <br>
+                            <input type="text" id="token" name="token" placeholder="Gemini API Token" required>
+                            <br>
+                            <button id="submit" type="submit" class="button button--light">Generate Fitness Plan</button>
+                        </form>
+                    </div>
+                    <div class="right">
+                        <div id="output"></div>
+                        <div id="loader" class="loader-wrapper">
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </main>
+        <footer>
+            <div class="container">
+                <div class="header-wrapper">
+                    <a href="index.html"><p class="logo">FIT.AI</p></a>
+                </div>
+            </div>
+        </footer>
+        <script type="importmap">
+            {
+                "imports": {
+                "@google/generative-ai": "https://esm.sh/@google/generative-ai"
+                }
+            }
+        </script>
+        <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+            const API_KEY = document.getElementById('token').value;
+            const genAI = new GoogleGenerativeAI(API_KEY);
+            const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+            function convertToHtml(text) {
+                text = text.replace(/## (.*?)\n/g, '<h2>$1</h2>\n');
+
+                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+                text = text.replace(/\* (.*?)\n/g, '<li>$1</li>\n');
+
+                text = text.replace(/(<li>.*?<\/li>\n)+/g, match => '<ul>\n' + match + '</ul>\n');
+
+                return text;
+            }
+
+            const loader = document.getElementById('loader');
+            const submitButton = document.getElementById('submit');
+
+            document.getElementById('fitness-form').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const age = document.getElementById('age').value;
+                const weight = document.getElementById('weight').value;
+                const height = document.getElementById('height').value;
+
+                const prompt = `Generate a fitness plan for a person with the following details:\nAge: ${age},\nWeight: ${weight} kg,\nHeight: ${height} cm.`;
+
+                try {
+                    loader.classList.add('active');
+                    submitButton.disabled = true;
+                    document.getElementById('output').textContent = "";
+                    const result = await model.generateContent(prompt);
+                    if (result && typeof result === 'object') {
+                        const content = result.response.candidates[0].content.parts[0].text;
+                        const htmlContent = convertToHtml(content);
+                        document.getElementById('output').innerHTML = htmlContent;
+                    } else {
+                        throw new Error("Empty or invalid response received.");
+                    }
+                } catch (error) {
+                    console.error("Error generating fitness plan:", error);
+                    document.getElementById('output').textContent = `Failed to generate fitness plan. Error: ${error.message}`;
+                }
+                finally {
+                    loader.classList.remove('active');
+                    submitButton.disabled = false;
+                }
+            });
+        </script>
+    </body>
+</html>

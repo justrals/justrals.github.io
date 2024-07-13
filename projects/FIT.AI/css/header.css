@@ -1,0 +1,119 @@
+/* :root {
+    --theme-color: rgb(0, 0, 0);
+    --theme-color-op: rgb(255, 255, 255);
+    --theme-color-60: rgba(0, 0, 0, 0.6);
+    --theme-color-2: #262626;
+} */
+
+:root {
+    --header-height: 100px;
+    --theme-color: rgb(255, 255, 255);
+    --theme-color-op: rgb(0, 0, 0);
+    --theme-color-60: rgba(255, 255, 255, 0.6);
+    --theme-color-2: #e7e7e7;
+}
+
+header {
+    background-color: var(--theme-color);
+    height: var(--header-height);
+    width: 100%;
+    z-index: 10;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    margin-bottom: 0;
+}
+
+.nav li:not(:last-of-type) {
+    margin-right: 20px;
+}
+
+.nav a {
+    color: var(--theme-color-op);
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.nav p {
+    color: var(--theme-color-op);
+}
+
+.logo {
+    color: var(--theme-color-op);
+    font-size: 32px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.sign-in-button p {
+    background-color: var(--theme-color-op);
+    border-radius: 14px;
+    color: var(--theme-color);
+    display: inline-block;
+    font-size: 20px;
+    padding: 13px 23px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: var(--theme-color-op);
+    color: var(--theme-color);
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 14px;
+    display: inline-block;
+    padding: 13px 23px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--theme-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 14px;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-left: -80px;
+}
+
+.dropdown-content a {
+    color: var(--theme-color-op);
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p {
+   padding-left: 12px;
+   font-weight: 500;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--theme-color-2);
+    border-radius: 14px;
+}
