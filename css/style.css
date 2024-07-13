@@ -13,7 +13,7 @@ html {
 
 .title {
   font-family: "Montserrat", sans-serif;
-  font-size: 6rem;
+  font-size: 96px;
   font-weight: 800;
   letter-spacing: 2px;
   color: #f35626;
@@ -32,8 +32,9 @@ html {
 
 .center {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 @-webkit-keyframes hue {
@@ -148,4 +149,34 @@ a {
 
 .main-content {
   margin: 100px 200px 100px 200px;
+}
+
+.main-page-advice img {
+  width: 70px;
+  animation: jump 1s;
+}
+
+.main-page-advice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+@keyframes jump {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
 }
