@@ -113,8 +113,11 @@ html {
 
 .banner {
   width: 100%;
-  max-height: 300px;
-  filter: blur(40px);
+  height: 300px;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-animation: hue 30s infinite linear;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
 }
 
 .banner-center {
@@ -148,7 +151,7 @@ a {
 }
 
 .main-content {
-  margin: 100px 200px 100px 200px;
+  margin: 50px 200px 50px 200px;
 }
 
 .main-page-advice img {
