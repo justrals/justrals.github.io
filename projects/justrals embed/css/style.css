@@ -1,43 +1,60 @@
+body {
+    background: none transparent;
+}
+
+html, body, p, h1 {
+    margin: 0;
+    padding: 0;
+}
+
 p {
     font-family: "Montserrat", sans-serif;
 }
 
-html body {
-    margin: 0;
-    padding: 0;
-}
-
-.header-panel {
-    background-color: #1e2021;
+.banner-content {
     display: flex;
     justify-content: space-between;
-    height: 50px;
 }
 
-.header-panel h1 {
-    font-size: 32px;
+.banner {
+    background-color: #1e2021;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    bottom: 94%;
+}
+
+.banner h1 {
+    font-size: 23px;
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
-    letter-spacing: 2px;
     color: #f35626;
     background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-animation: hue 30s infinite linear;
     transition: 0.5s;
+    margin: 10px 0 0 30px;
 }
 
-.header-panel p {
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
+.banner p {
     color: white;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-animation: hue 30s infinite linear;
+    border-radius: 6px;
+    padding: 5px;
 }
 
 a {
     text-decoration: none;
+}
+
+.back-button {
+    padding: 10px 20px 0 0;
 }
 
 @-webkit-keyframes hue {
