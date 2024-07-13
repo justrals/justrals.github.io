@@ -1,5 +1,7 @@
 body {
     background: none transparent;
+    height: 50px;
+    width: 100%;
 }
 
 html, body, p, h1 {
@@ -18,12 +20,14 @@ p {
 
 .banner {
     background-color: #1e2021;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 50px;
     width: 100%;
     position: fixed;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     bottom: 94%;
+    z-index: 1000;
 }
 
 .banner h1 {
