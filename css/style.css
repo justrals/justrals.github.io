@@ -183,3 +183,15 @@ a {
       transform: translateY(-10px);
   }
 }
+
+.previous-page-button {
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.previous-page-button-container {
+  display: flex;
+  justify-content: space-between;
+}
