@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/footer.css">
     </head>
     <body>
-        <iframe src="https://justrals.github.io/projects/justrals-embed" width="100%" height="50px" style="border:none;" allowtransparency="true"></iframe><style>header {margin-top:50px;}</style>
+        <iframe src="https://justrals.github.io/projects/justrals-embed" width="100%" height="50px" style="border:none; z-index: 1000; position: fixed;" allowtransparency="true"></iframe><style>header {margin-top:50px;}</style>
         <header>
             <div class="container">
                 <div class="header-wrapper">
@@ -21,7 +21,7 @@
                     <ul class="nav">
                         <li class="nav-item">
                             <div class="dropdown">
-                                <button class="dropbtn">userName</button>
+                                <button class="dropbtn">Username</button>
                                 <div class="dropdown-content" id="dropdownMenu">
                                     <a href="index.html">Dashboard</a>
                                     <a href="index.html">Settings</a>
@@ -53,22 +53,26 @@
         </script>
         <main>
             <div class="container">
-                <h1>Dashboard</h1>
+                <h1 class="title">Make fitness plan</h1>
                 <div class="hero-dashboard">
                     <div class="left">
                         <form id="fitness-form">
-                            <input type="number" id="age" name="age" min="18" max="100" placeholder="Age" required>
+                            <input type="number" id="age" name="age" min="0" max="100" placeholder="Age" required>
                             <br>
                             <input type="number" id="weight" name="weight" min="20" max="300" placeholder="Weight (kg)" required>
                             <br>
                             <input type="number" id="height" name="height" min="50" max="300" placeholder="Height (cm)" required>
+                            <br>
+                            <select name="sex" id="sex" required><option value="" disabled selected>Sex</option><option value="male">Male</option><option value="woman">Woman</option></select>
+                            <br>
+                            <input type="text" id="language" name="language" placeholder="Language" required>
                             <br>
                             <input type="text" id="token" name="token" placeholder="Gemini API Token" required>
                             <br>
                             <button id="submit" type="submit" class="button button--light">Generate Fitness Plan</button>
                         </form>
                     </div>
-                    <div class="right">
+                    <div id="output-box" class="right">
                         <div id="output"></div>
                         <div id="loader" class="loader-wrapper">
                             <div class="loader"></div>
@@ -118,8 +122,11 @@
                 const age = document.getElementById('age').value;
                 const weight = document.getElementById('weight').value;
                 const height = document.getElementById('height').value;
+                const sex = document.getElementById('sex').value;
+                const language = document.getElementById('language').value;
 
-                const prompt = `Generate a fitness plan for a person with the following details:\nAge: ${age},\nWeight: ${weight} kg,\nHeight: ${height} cm.`;
+                const prompt = `Generate a fitness plan in ${language} language for a person with the following details:\nAge: ${age},\nWeight: ${weight} kg,\nHeight: ${height} cm,\nSex: ${sex}. Make the outputs in html format with tags and don't write "html" at the beginning.`;
+                console.log(prompt);
 
                 try {
                     loader.classList.add('active');
@@ -135,7 +142,9 @@
                     }
                 } catch (error) {
                     console.error("Error generating fitness plan:", error);
-                    document.getElementById('output').textContent = `Failed to generate fitness plan. Error: ${error.message}`;
+                    document.getElementById('output').textContent = `Failed to generate fitness plan. Try refreshing the page and trying again.`;
+                    var element = document.getElementById('output-box');
+                    element.classList.add('right-error');
                 }
                 finally {
                     loader.classList.remove('active');
