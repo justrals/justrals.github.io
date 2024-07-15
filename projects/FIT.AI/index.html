@@ -71,7 +71,6 @@
                             <br>
                             <button id="submit" type="submit" class="button button--light">Generate Fitness Plan</button>
                         </form>
-                        <button onclick="location.reload();">Refresh</button>
                     </div>
                     <div id="output-box" class="right">
                         <div id="output"></div>
@@ -98,45 +97,34 @@
         </script>
         <script type="module">
             import { GoogleGenerativeAI } from "@google/generative-ai";
-            const API_KEY = document.getElementById('token').value;
-            const genAI = new GoogleGenerativeAI(API_KEY);
-            const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-            function convertToHtml(text) {
-                text = text.replace(/## (.*?)\n/g, '<h2>$1</h2>\n');
-
-                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-                text = text.replace(/\* (.*?)\n/g, '<li>$1</li>\n');
-
-                text = text.replace(/(<li>.*?<\/li>\n)+/g, match => '<ul>\n' + match + '</ul>\n');
-
-                return text;
-            }
-
+        
             const loader = document.getElementById('loader');
             const submitButton = document.getElementById('submit');
-
+        
             document.getElementById('fitness-form').addEventListener('submit', async function(event) {
                 event.preventDefault();
-
+        
+                const API_KEY = document.getElementById('token').value;
+                const genAI = new GoogleGenerativeAI(API_KEY);
+        
                 const age = document.getElementById('age').value;
                 const weight = document.getElementById('weight').value;
                 const height = document.getElementById('height').value;
                 const sex = document.getElementById('sex').value;
                 const language = document.getElementById('language').value;
-
+        
                 const prompt = `Generate a fitness plan in ${language} language for a person with the following details:\nAge: ${age},\nWeight: ${weight} kg,\nHeight: ${height} cm,\nSex: ${sex}. Make the outputs in html format with tags and don't write "html" at the beginning.`;
                 console.log(prompt);
-
+        
                 try {
                     loader.classList.add('active');
                     submitButton.disabled = true;
                     document.getElementById('output').textContent = "";
+                    const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
                     const result = await model.generateContent(prompt);
+        
                     if (result && typeof result === 'object') {
-                        const content = result.response.candidates[0].content.parts[0].text;
-                        const htmlContent = convertToHtml(content);
+                        const htmlContent = result.response.candidates[0].content.parts[0].text;
                         document.getElementById('output').innerHTML = htmlContent;
                     } else {
                         throw new Error("Empty or invalid response received.");
@@ -146,12 +134,11 @@
                     document.getElementById('output').textContent = `Failed to generate fitness plan. Try refreshing the page and trying again.`;
                     var element = document.getElementById('output-box');
                     element.classList.add('right-error');
-                }
-                finally {
+                } finally {
                     loader.classList.remove('active');
                     submitButton.disabled = false;
                 }
             });
-        </script>
+        </script>             
     </body>
 </html>
