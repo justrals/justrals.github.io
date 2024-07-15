@@ -76,39 +76,31 @@ html {
   color: white;
 }
 
-.bg-black {
-  background-image: -webkit-linear-gradient(92deg, #0f0f0f, #292929);
+.card-image {
   width: 70px;
   border-radius: 15px;
   padding: 5px;
+}
+
+.bg-black {
+  background-image: -webkit-linear-gradient(92deg, #0f0f0f, #292929);
 }
 
 .bg-orange {
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-  width: 70px;
-  border-radius: 15px;
-  padding: 5px;
 }
 
 .bg-green {
   background-image: -webkit-linear-gradient(92deg, #0b924f, #5fe9a4);
-  width: 70px;
-  border-radius: 15px;
-  padding: 5px;
 }
 
 .bg-blue {
   background-image: -webkit-linear-gradient(92deg, #1a37d6, #4f66e7);
-  width: 70px;
-  border-radius: 15px;
-  padding: 5px;
+
 }
 
 .bg-red {
   background-image: -webkit-linear-gradient(92deg, #ce1c3a, #db5168);
-  width: 70px;
-  border-radius: 15px;
-  padding: 5px;
 }
 
 .banner {
@@ -188,10 +180,16 @@ a {
   color: white;
   font-weight: 500;
   cursor: pointer;
-  font-size: 20px;
 }
 
 .previous-page-button-container {
   display: flex;
   justify-content: space-between;
+}
+
+.tag-badge {
+  background-color: rgb(255, 86, 227);
+  padding: 2px 10px 2px 10px;
+  border-radius: 100px;
+  font-size: 15px !important;
 }
