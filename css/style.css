@@ -82,25 +82,41 @@ html {
   padding: 5px;
 }
 
-.bg-black {
+.gr-black {
   background-image: -webkit-linear-gradient(92deg, #0f0f0f, #292929);
 }
 
-.bg-orange {
+.gr-orange {
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
 }
 
-.bg-green {
+.gr-green {
   background-image: -webkit-linear-gradient(92deg, #0b924f, #5fe9a4);
 }
 
-.bg-blue {
+.gr-blue {
   background-image: -webkit-linear-gradient(92deg, #1a37d6, #4f66e7);
 
 }
 
-.bg-red {
+.gr-red {
   background-image: -webkit-linear-gradient(92deg, #ce1c3a, #db5168);
+}
+
+.gr-fitai {
+  background-image: -webkit-linear-gradient( #006769, #40A578, #9DDE8B );
+}
+
+.gr-css {
+  background-image: -webkit-linear-gradient(92deg, #016cb6, #28a3d8);
+}
+
+.gr-html {
+  background-image: -webkit-linear-gradient(92deg, #de4b24, #ec6329);
+}
+
+.gr-js {
+  background-image: -webkit-linear-gradient(92deg, #dba301, #fbb927);
 }
 
 .banner {
@@ -188,8 +204,34 @@ a {
 }
 
 .tag-badge {
-  background-color: rgb(255, 86, 227);
+  background-color: rgb(0, 0, 0);
   padding: 2px 10px 2px 10px;
   border-radius: 100px;
   font-size: 15px !important;
+}
+
+.tags {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  max-height: 100px;
+  gap: 5px;
+  
+}
+
+.card-info p {
+  margin: 0;
+}
+
+.project-desc {
+  font-size: 15px !important;
+}
+
+.project-title {
+  font-weight: 700;
 }
