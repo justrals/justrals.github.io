@@ -389,3 +389,13 @@ footer {
     color: var(--theme-color);
     margin-bottom: 10px;
 }
+
+.input-badge {
+    background-color: white;
+    border-radius: 20px 0 10px 0;
+    max-width: 1000px;
+    padding: 5px 5px 5px 10px;
+    font-size: 12px;
+    position: absolute;
+    margin: 0 0 20px 0px;
+}
