@@ -127,10 +127,10 @@
                 const language = document.getElementById('language').value;
         
                 const prompt = `Generate a fitness plan in ${language} language for a person with the following details:\nAge: ${age},\nWeight: ${weight} kg,\nHeight: ${height} cm,\nSex: ${sex}. Make the outputs in html format with tags and don't write "html" at the beginning.`;
-                console.log(prompt);
         
                 try {
                     outputbox.classList.remove('right-error');
+                    document.getElementById('output').innerHTML = '';
                     loader.classList.add('active');
                     submitButton.disabled = true;
         
@@ -150,8 +150,6 @@
                             await generateAndSavePDF();
                         });
                         document.getElementById('output').appendChild(savePdfButton);
-        
-                        console.log("PDF save button added.");
                     } else {
                         throw new Error("Empty or invalid response received.");
                     }
@@ -168,7 +166,6 @@
             async function generateAndSavePDF() {
                 const element = document.getElementById('output');
                 await html2pdf().from(element).save('fitness_plan.pdf');
-                console.log("PDF saved successfully.");
             }
         
             document.getElementById('fitness-form').addEventListener('submit', async function(event) {
