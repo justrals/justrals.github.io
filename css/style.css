@@ -196,6 +196,11 @@ a {
   color: white;
   font-weight: 500;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+.previous-page-button:hover {
+  transform: scale(1.1);
 }
 
 .previous-page-button-container {
