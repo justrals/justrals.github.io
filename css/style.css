@@ -96,7 +96,10 @@ html {
 
 .gr-blue {
   background-image: -webkit-linear-gradient(92deg, #1a37d6, #4f66e7);
+}
 
+.gr-purple {
+  background-image: -webkit-linear-gradient(92deg, #921cb3, #d17aea);
 }
 
 .gr-red {
