@@ -1,4 +1,4 @@
-<h1>My github webpage</h1>
+<h1>Personal portfolio page</h1>
 <a href="https://justrals.github.io/" target="_blank"><i>made by justrals with <3</i></a>
 <hr>
 <h2>Images</h2>
