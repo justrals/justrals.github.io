@@ -37,6 +37,15 @@ html {
   flex-grow: 1;
 }
 
+@-webkit-keyframes hue-banner {
+  from {
+    -webkit-filter: blur(100px) hue-rotate(0deg) grayscale(0.5);
+  }
+  to {
+    -webkit-filter: blur(100px) hue-rotate(-360deg) grayscale(0.5);
+  }
+}
+
 @-webkit-keyframes hue {
   from {
     -webkit-filter: hue-rotate(0deg);
@@ -126,9 +135,7 @@ html {
   width: 100%;
   height: 300px;
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-  -webkit-animation: hue 30s infinite linear;
-  -webkit-filter: blur(4px);
-  filter: blur(4px);
+  -webkit-animation: hue-banner 30s infinite linear;
 }
 
 .banner-center {
