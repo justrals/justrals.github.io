@@ -250,3 +250,8 @@ a {
 .project-title {
   font-weight: 700;
 }
+
+main {
+  z-index: 1;
+  position: absolute;
+}
