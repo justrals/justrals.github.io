@@ -243,3 +243,7 @@ a {
 .project-title {
   font-weight: 700;
 }
+
+.hidden {
+  display: none !important;
+}
