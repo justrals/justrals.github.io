@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /search
+Disallow: /checkout
+
+Sitemap: https://justrals.tech/sitemap.xml

@@ -1,41 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>justrals</title>
-        <link rel="icon" href="img/logo.svg">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Welcome to my bio website!">
-        <meta name="keywords" content="justrals, JustRals, justrals.uwu, justrals bio">
-        <meta name="author" content="justrals">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <style>
-            @media only screen and (max-width:900px) {
-                .main-content {
-                    margin: 100px 50px 100px 50px;
-                }
-                .title {
-                    font-size: 70px;
-                }
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>justrals</title>
+    <link rel="icon" href="img/logo.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore justrals's projects, and social media links.">
+    <meta name="keywords" content="justrals, JustRals, justrals.uwu, justrals bio">
+    <meta name="author" content="justrals">
+    <meta property="og:title" content="Twokinds Universe">
+    <meta property="og:description" content="Explore justrals's projects, and social media links.">
+    <meta property="og:image" content="https://justrals.tech/img/og-image.png">
+    <meta property="og:url" content="https://justrals.tech">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        @media only screen and (max-width:900px) {
+            .main-content {
+                margin: 50px 50px 50px 50px;
             }
-        </style>
-    </head>
-    <body>
-        <main>
-            <div class="container">
-                <div class="center title-container">
-                    <a href="main.html">
-                        <h1 class="title">justrals</h1>
-                    </a>
+        }
+        @media only screen and (max-width:500px) {
+            .center {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .card-image {
+                width: 100%;
+                height: 70px;
+            }
+            .card-info {
+                display: flex;
+                justify-content: flex-start !important;
+                width: 100%;
+            }
+        }
+        .fs, body, main, html {
+            height: auto;
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner-container">
+            <div class="banner"></div>
+            <div class="banner-center"><a href="/"><h1>justrals</h1></a></div>
+        </div>
+    </header>
+    <main>
+        <div id="main">
+            <div class="main-content">
+                <div class="info">
+                    <h1 class="page-title">Main Page</h1>
+                    <div class="previous-page-button-container">
+                        <span class="page-desc">All useful stuff is located here</span>
+                    </div>
                 </div>
-                <div class="main-page-advice">
-                    <div class="advice-up"><img src="img/arrow-up.svg"></div>
-                    <div class="advice-bottom"><span>Click to proceed</span></div>
-                </div>
+                <a onclick="changePage('links')"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">Links</p>
+                        <p class="project-desc">Links to all my socials</p>
+                    </div>
+                    <img src="img/share-icon.svg" class="gr-black card-image">
+                </div></a>
+                <a onclick="changePage('projects')"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">Projects</p>
+                        <p class="project-desc">Cookin' some projects ~</p>
+                    </div>
+                    <img src="img/folder-icon.svg" class="gr-black card-image">
+                </div></a>
             </div>
-        </main>
-    </body>
+        </div>
+        <div id="projects">
+            <div class="main-content">
+                <div class="info">
+                    <h1 class="page-title">Projects</h1>
+                    <div class="previous-page-button-container">
+                        <span class="page-desc">Cookin' some projects ~</span>
+                        <a onclick="changePage('main')" class="previous-page-button">Go Back ↩</a>
+                    </div>
+                </div>
+                <a href="https://justrals.github.io/fit.ai/"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">FIT.AI</p>
+                        <p class="project-desc">AI powered website for fitness plan generation. </p>
+                        <div class="tags">
+                            <p class="tag-badge gr-html">.html</p>
+                            <p class="tag-badge gr-css">.css</p>
+                            <p class="tag-badge gr-js">.js</p>
+                        </div>
+                    </div>
+                    <img src="img/FIT.AI-logo.svg" class="gr-fitai card-image">
+                </div></a>
+                <a href="https://justrals.github.io/justrals-embed/"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">JustRals Embed</p>
+                        <p class="project-desc">Overlay embed for my project pages.</p>
+                        <div class="tags">
+                            <p class="tag-badge gr-html">.html</p>
+                            <p class="tag-badge gr-css">.css</p>
+                        </div>
+                    </div>
+                    <img src="img/justrals-embed-logo.svg" class="gr-orange card-image">
+                </div></a>
+                <a href="https://tkuniverse.space/"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">Twokinds Universe</p>
+                        <p class="project-desc">Remake of twokinds.keenspot.com.</p>
+                        <div class="tags">
+                            <p class="tag-badge gr-html">.html</p>
+                            <p class="tag-badge gr-css">.css</p>
+                            <p class="tag-badge gr-js">.js</p>
+                        </div>
+                    </div>
+                    <img src="img/tku-logo.svg" class="gr-purple card-image">
+                </div></a>
+                <a href="https://justrals.github.io/mailto-generator/"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">mailto:generator</p>
+                        <p class="project-desc">Simple mailto link generator.</p>
+                        <div class="tags">
+                            <p class="tag-badge gr-html">.html</p>
+                            <p class="tag-badge gr-css">.css</p>
+                            <p class="tag-badge gr-js">.js</p>
+                        </div>
+                    </div>
+                    <img src="img/mailto-logo.svg" class="gr-black card-image">
+                </div></a>
+            </div>
+        </div>
+        <div id="links">
+            <div class="main-content">
+                <div class="info">
+                    <h1 class="page-title">Links</h1>
+                    <div class="previous-page-button-container">
+                        <span class="page-desc">Links to all my socials</span>
+                        <a onclick="changePage('main')" class="previous-page-button">Go Back ↩</a>
+                    </div>
+                </div>
+                <a href="https://github.com/justrals/" target="_blank"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">GitHub</p>
+                        <p class="project-desc">@justrals</p>
+                    </div>
+                    <img src="img/github-logo.svg" class="gr-black card-image">
+                </div></a>
+                <a href="https://www.reddit.com/user/justrals/" target="_blank"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">Reddit</p>
+                        <p class="project-desc">@justrals</p>
+                    </div>
+                    <img src="img/reddit-logo.svg" class="gr-orange card-image">
+                </div></a>
+                <a href="https://open.spotify.com/user/31ratotkaittlplved2ftkftm5xe" target="_blank"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">Spotify</p>
+                        <p class="project-desc">@justrals</p>
+                    </div>
+                    <img src="img/spotify-logo.svg" class="gr-green card-image">
+                </div></a>
+                <a href="https://discord.com/users/708560412789964802/" target="_blank"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">Discord</p>
+                        <p class="project-desc">@justrals</p>
+                    </div>
+                    <img src="img/discord-logo.svg" class="gr-blue card-image">
+                </div></a>
+                <a href="https://tiktok.com/@justrals/" target="_blank"><div class="card center">
+                    <div class="card-info">
+                        <p class="project-title">TikTok</p>
+                        <p class="project-desc">@justrals</p>
+                    </div>
+                    <img src="img/tiktok-logo.svg" class="gr-red card-image">
+                </div></a>
+            </div>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
 </html>
