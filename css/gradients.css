@@ -1,0 +1,43 @@
+.gr-black {
+    background-image: -webkit-linear-gradient(92deg, #0f0f0f, #292929);
+}
+
+.gr-orange {
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+}
+
+.gr-green {
+    background-image: -webkit-linear-gradient(92deg, #0b924f, #5fe9a4);
+}
+
+.gr-blue {
+    background-image: -webkit-linear-gradient(92deg, #1a37d6, #4f66e7);
+}
+
+.gr-light-blue {
+    background-image: -webkit-linear-gradient(92deg, #0980bb, #7dcdf5);
+}
+
+.gr-purple {
+    background-image: -webkit-linear-gradient(92deg, #921cb3, #d17aea);
+}
+
+.gr-red {
+    background-image: -webkit-linear-gradient(92deg, #ce1c3a, #db5168);
+}
+
+.gr-fitai {
+    background-image: -webkit-linear-gradient( #006769, #40A578, #9DDE8B );
+}
+
+.gr-css {
+    background-image: -webkit-linear-gradient(92deg, #016cb6, #28a3d8);
+}
+
+.gr-html {
+    background-image: -webkit-linear-gradient(92deg, #de4b24, #ec6329);
+}
+
+.gr-js {
+    background-image: -webkit-linear-gradient(92deg, #dba301, #fbb927);
+}
