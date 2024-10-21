@@ -8,7 +8,6 @@ const linksButton = document.getElementById('');
 const projectsButton = document.getElementById('');
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('test');
     if (currentPage === 'main') {
         main.style.display = 'block';
         links.style.display = 'none';
